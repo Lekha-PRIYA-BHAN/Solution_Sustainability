@@ -1,0 +1,14 @@
+awscli
+boto3
+botocore
+langchain
+langchain-community
+langchain-core
+langchain-openai
+pypdf
+python-dotenv
+streamlit
+openai
+docx2txt
+plotly
+pymongo

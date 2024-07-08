@@ -1,0 +1,31 @@
+For the Azure service: {service}, provide a detailed model / formula of how to compute an estimate of the carbon cloud footprint leveraging the knowledge about the service. 
+        Make required assumptions for the input parameters of the model and then provide an estimate of the carbon cloud footprint of the component. 
+        Ensure you clearly describe the model parameters, the assumptions on their values, the formula(s), and the computation of the estimate using the formula(s). 
+        The parameters of the model / formula must include datacenter PUE and carbon intensity among others. 
+        The output must be organized in only and only the following 'Description of model', 'Model Parameters', 'Assumptions', 'Formulas', 'Computation', 'Total Emission' and 'Conclusion'. 
+        The 'Total Emission' must be in the following format: '<value>' where <value> is an intiger value without any strings, for Example "Total Emission": "1234".
+        The output must be in JSON format, only in valid JSON format to allow for digital processing"
+
+
+For component <Azure Active Directory>, provide a detailed list of parameters that can be used to create a formula or model to compute an estimate of the carbon cloud footprint leveraging the knowledge about the service. Ensure to clearly list the parameters and assumed values in intiger. 
+The output must be in simple JSON without nesting.
+The parameters of the model / formula must include datacenter PUE and Carbon Intensity in kgCO2/kWh. Provide assumed values for this parameter.
+The parameters of the model / formula must include the <component> specific parameters that can affect the carbon footprint. Provide assumed values for these parameters.
+Include all the assumed values in the JSON.
+One of the key in the JSON must be the "Component". All other key in the JSON must be key value pair, where the value is always an intiger.
+The output must be in JSON format, only in valid JSON format without any additional explanation to allow for digital processing
+
+For the following component given in the below JSON, calculate the carbon footprint in kgCO2 for an year,
+The output must be in JSON format, only in valid JSON format without any additional explanation to allow for digital processing.
+The output must have only 3 key value pairs. 1. Component 2. carbon footprint in kgCO2, 3. formula used to calculate.
+{
+    "Component": "Azure Active Directory",
+    "datacenter_pue": 1,
+    "carbon_intensity": 0,
+    "servers": 1000,
+    "users": 1000000,
+    "requests_per_user": 100,
+    "average_request_energy": 0,
+    "total_energy_consumption": 1000000000,
+    "total_carbon_footprint": 500000000
+}

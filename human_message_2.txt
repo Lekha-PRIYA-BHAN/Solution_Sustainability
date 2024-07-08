@@ -1,0 +1,3 @@
+The image is a solution architecture to be run on Hyperscalers.
+Provide a list of all the component names (ensuring that each component's name is closest to how the vendor calls it) that would contribute to the overall carbon footprint.
+The output must be in a simple JSON array format, only in valid JSON format to allow for digital processing. Don't provide any additional textual explanation.

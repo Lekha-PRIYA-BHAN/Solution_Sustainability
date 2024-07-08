@@ -1,0 +1,7 @@
+{ 
+  "Component": "Azure API Management",
+  "Datacenter PUE": 1.6, 
+  "Carbon Intensity (gCO2/kWh)": 450, 
+  "Requests per Month": 1000000, 
+  "Average Response Size (KB)": 50 
+}

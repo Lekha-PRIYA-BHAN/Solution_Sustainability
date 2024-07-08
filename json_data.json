@@ -1,0 +1,27 @@
+{
+  "Description of model": "The model estimates the carbon footprint of an Azure VM based on the VM size, datacenter PUE, datacenter carbon intensity and estimated VM usage in hours. The computation follows the formula: Carbon footprint = VM size (cores, RAM) x Usage hours x PUE x Carbon intensity",
+  "Model Parameters": {
+    "VM size": "Number of CPU cores and RAM size of the VM. Example values: 4 cores, 16GB RAM",  
+    "Usage hours": "Estimated number of hours the VM will be used per month",
+    "PUE": "Power usage effectiveness value of the Azure datacenter. Assumed value: 1.125",
+    "Carbon intensity": "Carbon emitted per kWh of electricity consumed in the Azure datacenter region. Assumed value: 0.426 kgCO2e/kWh for a European datacenter" 
+  },
+  "Assumptions": {
+    "VM size": {
+      "CPU cores": 4,  
+      "RAM": "16 GB"
+    },
+    "Usage hours": "730 hours (full month usage)",
+    "PUE": 1.125, 
+    "Carbon intensity": 0.426  
+  },
+  "Formulas": {
+    "VM power usage": "CPU cores x 0.05 kWh + RAM GB x 0.002 kWh",
+    "Total power usage": "VM power usage x Usage hours",  
+    "Carbon footprint": "Total power usage x PUE x Carbon intensity"
+  },
+  "Computation": "VM power usage = 4 CPU cores x 0.05 kWh + 16 GB RAM x 0.002 kWh = 0.32 kWh. Total power usage = 0.32 kWh x 730 hours = 233.6 kWh. Carbon footprint = 233.6 kWh x 1.125 PUE x 0.426 kgCO2e/kWh = 112 kgCO2e",
+  "Total Emission": 112,
+  "Conclusion": "The estimated carbon cloud footprint for the Azure VM as configured is 112 kgCO2e per month."  
+  "Prompt": "What are all the parameters required for creating a formula to find carbon footprint in kgCO2e for Azure Active Directory. Provide the answer in a simple JSON without nesting. The values of each keys should be intiger so that the formula can be used to calculate actuals."
+}

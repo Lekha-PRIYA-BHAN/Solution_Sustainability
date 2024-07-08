@@ -1,0 +1,12 @@
+version: '3'
+services:
+# GenAI APP
+  genai:
+    image: sustainability-solutioner:latest
+    build: .
+    ports:
+      - 5000:5000
+    volumes:
+      - C:\Users\MANISHGUPTA\kyndryl\github\solution-sustainability:/app
+      - C:\Users\MANISHGUPTA\kyndryl\github\solution-sustainability\.streamlit\:/root/.streamlit
+      - C:\Users\MANISHGUPTA\.aws:/root/.aws

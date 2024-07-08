@@ -1,0 +1,35 @@
+version: '3'
+services:
+# GenAI APP
+  genai:
+    image: sustainability-solutioner:latest
+    build: .
+    ports:
+      - 5000:5000
+    volumes:
+      - $PWD:/app
+      - $PWD/.streamlit/:/root/.streamlit
+      - $HOME/.aws:/root/.aws
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - './db:/data/db'
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: ${DB_HOST}
+      ME_CONFIG_MONGODB_PORT: ${DB_PORT}
+      # ME_CONFIG_MONGODB_ENABLE_ADMIN: false
+      ME_CONFIG_MONGODB_AUTH_DATABASE: admin
+      ME_CONFIG_MONGODB_AUTH_USERNAME: ${DB_USERNAME}
+      ME_CONFIG_MONGODB_AUTH_PASSWORD: ${DB_PASSWORD}
+      ME_CONFIG_BASICAUTH_USERNAME: ${DB_USERNAME}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${DB_PASSWORD}
